@@ -127,6 +127,56 @@
   });
 
   /* ============================================================
+     MENÚ MÓVIL
+     ============================================================ */
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const navCollapsible = document.getElementById("navCollapsible");
+
+  function closeMobileMenu() {
+    if (!navCollapsible || !hamburgerBtn) return;
+    navCollapsible.classList.remove("is-open");
+    hamburgerBtn.setAttribute("aria-expanded", "false");
+  }
+
+  function toggleMobileMenu() {
+    if (!navCollapsible || !hamburgerBtn) return;
+    const isOpen = navCollapsible.classList.toggle("is-open");
+    hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  if (hamburgerBtn && navCollapsible) {
+    hamburgerBtn.addEventListener("click", toggleMobileMenu);
+
+    // Cerrar al hacer click en un enlace o botón dentro del menú
+    navCollapsible.addEventListener("click", (e) => {
+      if (e.target.closest("a") || e.target.closest("button")) {
+        closeMobileMenu();
+      }
+    });
+
+    // Cerrar al hacer click fuera del menú
+    document.addEventListener("click", (e) => {
+      if (
+        navCollapsible.classList.contains("is-open") &&
+        !navCollapsible.contains(e.target) &&
+        !hamburgerBtn.contains(e.target)
+      ) {
+        closeMobileMenu();
+      }
+    });
+
+    // Cerrar con Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMobileMenu();
+    });
+
+    // Cerrar si la ventana vuelve a tamaño de escritorio
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 880) closeMobileMenu();
+    });
+  }
+
+  /* ============================================================
      MODALES
      ============================================================ */
   const overlay = document.getElementById("modalOverlay");
