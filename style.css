@@ -43,6 +43,14 @@ body{
 
 .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
 
+@media (max-width: 640px){
+  .wrap{padding:0 20px;}
+}
+
+@media (max-width: 380px){
+  .wrap{padding:0 16px;}
+}
+
 h1,h2,h3,.display{
   font-family:'Fraunces', serif;
   font-weight:600;
@@ -91,11 +99,25 @@ nav.wrap{
   display:flex; align-items:center; justify-content:space-between;
   height:76px;
 }
+
+@media (max-width: 640px){
+  nav.wrap{
+    height:68px;
+    gap:12px;
+  }
+}
 .logo{
   font-family:'Fraunces', serif;
   font-size:22px;
   font-weight:700;
   display:flex; align-items:center; gap:10px;
+}
+
+@media (max-width: 640px){
+  .logo{
+    font-size:18px;
+    gap:8px;
+  }
 }
 .logo-mark{
   width:30px; height:30px;
@@ -109,6 +131,15 @@ nav.wrap{
   position:absolute; inset:6px;
   background:var(--paper);
   border-radius:50%;
+}
+
+@media (max-width: 640px){
+  .logo-mark{
+    width:26px; height:26px;
+  }
+  .logo-mark::after{
+    inset:5px;
+  }
 }
 .nav-links{
   display:flex; gap:36px;
@@ -124,6 +155,18 @@ nav.wrap{
 .nav-links a:hover{color:var(--ink);}
 .nav-cta{
   display:flex; align-items:center; gap:18px;
+}
+
+@media (max-width: 640px){
+  .nav-cta{
+    gap:10px;
+  }
+}
+
+@media (max-width: 380px){
+  .nav-cta{
+    gap:8px;
+  }
 }
 .theme-toggle{
   width:40px; height:40px;
@@ -143,6 +186,13 @@ nav.wrap{
 .theme-toggle:active{
   transform:scale(0.95);
 }
+
+@media (max-width: 640px){
+  .theme-toggle{
+    width:36px; height:36px;
+    font-size:16px;
+  }
+}
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   font-family:'Inter',sans-serif;
@@ -154,6 +204,13 @@ nav.wrap{
   border:none;
   transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
   white-space:nowrap;
+}
+
+@media (max-width: 640px){
+  .btn{
+    font-size:13.5px;
+    padding:10px 16px;
+  }
 }
 .btn-primary{
   background:var(--ink);
@@ -229,6 +286,12 @@ html.dark-mode .btn-ghost:hover{
 .hero-actions{
   display:flex; align-items:center; gap:22px;
   flex-wrap:wrap;
+}
+
+@media (max-width: 640px){
+  .hero-actions{
+    gap:14px;
+  }
 }
 .hero-note{
   font-size:13.5px;
